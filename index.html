@@ -63,7 +63,11 @@
                 <!-- Jumbotron containing current city's info -->
                 <div class="col-sm-12">
                     <div class="jumbotron">
-                        <h3 class="city-name">City: (Date)</h3>
+                        <!-- Put the weather icon next to the city name -->
+                        <div class="form-inline">
+                            <h3 class="city-name">City: (Date)</h3>
+                            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" id="main-icon">
+                        </div>
                         <p class="info" id="temp">Temperature: </p>
                         <p class="info" id="humidity">Humidity: </p>
                         <p class="info" id="wind">Wind Speed: </p>

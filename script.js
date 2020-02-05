@@ -50,6 +50,8 @@ function setMainInfo(city){
     var $humidity = $("#humidity");
     var $windSpeed = $("#wind");
     var $uvIndex = $("#uv");
+    var $icon = $("#main-icon");
+    var iconCode;
 
     //latatude and longitude variables for determining UV index
     var lat;
@@ -64,11 +66,15 @@ function setMainInfo(city){
         method: "GET"
     }).then(function(response){
         console.log(response);
+        console.log(response.weather[0].icon);
+        iconCode = response.weather[0].icon;
         $temp.text("Temperature: "+response.main.temp+String.fromCharCode(176)+"F");
         $humidity.text("Humidity: "+response.main.humidity+"%");
         $windSpeed.text("Wind Speed: " + response.wind.speed + "MPH");
         lat = response.coord.lat;
         lon = response.coord.lon;
+        //set the icon
+        $icon.attr("src", "http://openweathermap.org/img/wn/"+iconCode+"@2x.png");
         //.then get the uv index so I can set that, but we need the lat and lon to have a value first
         $.ajax({
             url: uvUrl + uvApiKey + lat + "&lon=" + lon,
@@ -77,6 +83,8 @@ function setMainInfo(city){
             $uvIndex.text("UV Index: " + response.value);
         })
     })
+    //call the correct icon
+    
 
     //create the 5 day forecast section
     var $forecastBox = $(".forecast");
