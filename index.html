@@ -33,7 +33,13 @@
             <!-- second row with search box -->
             <div class="row">
                 <div class="col-sm-12">
-                    search box
+                    <!-- Form to search for a city -->
+                    <form class="form-inline">
+                        <div class="form-group mb-2">
+                            <input type="text" class="form-control" id="city-search">
+                        </div>
+                        <button class="btn btn-primary mb-2" id="search-button">Search</button>
+                    </form>
                 </div>
             </div>
 
@@ -41,9 +47,10 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ul class="list-group">
-                        <li class="list-group-item">Placeholder1</li>
+                        <!-- These placeholders are no longer needed, this is where the list of recent searches is stored -->
+                        <!-- <li class="list-group-item">Placeholder1</li>
                         <li class="list-group-item">Placeholder2</li>
-                        <li class="list-group-item">Placeholder3</li>
+                        <li class="list-group-item">Placeholder3</li> -->
                     </ul>
                 </div>
             </div>
@@ -57,10 +64,10 @@
                 <div class="col-sm-12">
                     <div class="jumbotron">
                         <h3 class="city-name">City: (Date)</h3>
-                        <p class="info">Temperature: </p>
-                        <p class="info">Humidity: </p>
-                        <p class="info">Wind Speed: </p>
-                        <p class="info">UV index: </p>
+                        <p class="info" id="temp">Temperature: </p>
+                        <p class="info" id="humidity">Humidity: </p>
+                        <p class="info" id="wind">Wind Speed: </p>
+                        <div class="info" id="uv">UV index: </div>
                     </div>
                 </div>
             </div>
@@ -68,13 +75,15 @@
             <!-- Row number two with the 5-Day forecast -->
             <div class="row">
                 <div class="col-sm-12">
-                    <section class="forecast">Forecast</section>
+                    <section class="forecast form-inline"></section>
                 </div>
             </div>
         </div>
     </div>
     <!-- Link to JQuery -->
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <!-- Link to moment.js -->
+    <script src="moment.js"></script>
     <!-- Link to Javascript -->
     <script src="script.js"></script>
 </body>
