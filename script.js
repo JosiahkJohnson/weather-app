@@ -43,7 +43,7 @@ function setMainInfo(city){
     var apiKey = "&units=imperial&appid=faa459a21acc3917147c52be955e1a1b";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + apiKey;
     var uvApiKey = "faa459a21acc3917147c52be955e1a1b&lat=";
-    var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=";
+    var uvUrl = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/uvi?appid=";
     //selector variables
     var $cityName = $(".city-name");
     var $temp = $("#temp");
@@ -115,7 +115,7 @@ function setMainInfo(city){
             $newForecast.append($title);
             //add image icon
             var $img = $("<img>");
-            $img.attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + ".png");
+            $img.attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + ".png");
             $newForecast.append($img);
             //add temp
             var $temp = $("<p>");
