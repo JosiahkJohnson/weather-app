@@ -76,7 +76,7 @@ function setMainInfo(city){
         lat = response.coord.lat;
         lon = response.coord.lon;
         //set the icon
-        $icon.attr("src", "http://openweathermap.org/img/wn/"+iconCode+"@2x.png");
+        $icon.attr("src", "https://openweathermap.org/img/wn/"+iconCode+"@2x.png");
         //.then get the uv index so I can set that, but we need the lat and lon to have a value first
         $.ajax({
             url: uvUrl + uvApiKey + lat + "&lon=" + lon,
