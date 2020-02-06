@@ -43,7 +43,7 @@ function setMainInfo(city){
     var apiKey = "&units=imperial&appid=faa459a21acc3917147c52be955e1a1b";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + apiKey;
     var uvApiKey = "faa459a21acc3917147c52be955e1a1b&lat=";
-    var uvUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=";
+    var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=";
     //selector variables
     var $cityName = $(".city-name");
     var $temp = $("#temp");
