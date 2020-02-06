@@ -22,3 +22,10 @@ The five day forecast can be found in the blue boxes that appear on the bottom o
 -date
 -temp
 -humidity
+
+# Screenshot of page
+![image](https://user-images.githubusercontent.com/57826922/73907673-dc6cb100-486c-11ea-928e-475a87651238.png)
+
+# link to github repository and page
+[link]https://github.com/JosiahkJohnson/weather-app
+[link]https://josiahkjohnson.github.io/weather-app/

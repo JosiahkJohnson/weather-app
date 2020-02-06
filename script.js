@@ -66,11 +66,13 @@ function setMainInfo(city){
         method: "GET"
     }).then(function(response){
         console.log(response);
-        console.log(response.weather[0].icon);
+        //gets the code for the icon
         iconCode = response.weather[0].icon;
+        //fill in the page with the returned info
         $temp.text("Temperature: "+response.main.temp+String.fromCharCode(176)+"F");
         $humidity.text("Humidity: "+response.main.humidity+"%");
         $windSpeed.text("Wind Speed: " + response.wind.speed + "MPH");
+        //useful for getting the uv index
         lat = response.coord.lat;
         lon = response.coord.lon;
         //set the icon
@@ -80,6 +82,7 @@ function setMainInfo(city){
             url: uvUrl + uvApiKey + lat + "&lon=" + lon,
             method: "GET"
         }).then(function(response){
+            //set the index
             $uvIndex.text("UV Index: " + response.value);
         })
     })
@@ -103,7 +106,6 @@ function setMainInfo(city){
         //I could get the three hour interval info from it so I made this loop count by 8
         //in order to give me the daily 5 day forecast
         for(i=0;i<response.list.length;i+=8){
-            console.log(response.list[i]);
             //create the new box to place the forecast in
             var $newForecast = $("<div>");
             $newForecast.addClass("day bg-primary text-white");
@@ -111,6 +113,10 @@ function setMainInfo(city){
             //create first line in five day forecast
             $title.text(moment().add(((i+8)/8-1), 'days').format('L'));
             $newForecast.append($title);
+            //add image icon
+            var $img = $("<img>");
+            $img.attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + ".png");
+            $newForecast.append($img);
             //add temp
             var $temp = $("<p>");
             $temp.text("Temp: " + response.list[i].main.temp + String.fromCharCode(176) + "F");
